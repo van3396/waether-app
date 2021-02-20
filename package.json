@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/van3396/waether-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/van3396/waether-app/issues"
+  },
+  "homepage": "https://github.com/van3396/waether-app#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
