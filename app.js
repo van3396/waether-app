@@ -1,5 +1,9 @@
-const chalk = require("chalk");
+const request = require("postman-request");
+require("dotenv").config();
 
-console.log(chalk.bgGreen("starting"));
+const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_API}&query=37.8267,-122.4233`;
 
-console.log(chalk.bgRed("stopping"));
+request({ url: url }, (err, res) => {
+  const data = JSON.parse(res.body);
+  console.log(data.current);
+});
