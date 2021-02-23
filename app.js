@@ -17,11 +17,17 @@ request({ url: url, json: true }, (err, res) => {
   }
 });
 
-// const mapboxURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=${process.env.MAPBOX_API}&limit=1`;
+const mapboxURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=${process.env.MAPBOX_API}&limit=1`;
 
-// request({ url: mapboxURL, json: true }, (err, res) => {
-//   const { features } = res.body;
-//   const lat = features[0].center[1];
-//   const long = features[0].center[0];
-//   console.log(`lat: ${lat} long: ${long}`);
-// });
+request({ url: mapboxURL, json: true }, (err, res) => {
+  if (err) {
+    console.log("Unable to connnect to mapbox!");
+  } else if (res.body.message || res.body.features.length === 0) {
+    console.log("Unable to find location");
+  } else {
+    const { features } = res.body;
+    const lat = features[0].center[1];
+    const long = features[0].center[0];
+    console.log(`lat: ${lat} long: ${long}`);
+  }
+});
