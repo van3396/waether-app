@@ -3,13 +3,13 @@ require("dotenv").config();
 
 const mapBox = (address, callback) => {
   const mapboxURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${process.env.MAPBOX_API}&limit=1`;
-  request({ url: mapboxURL, json: true }, (e, res) => {
+  request({ url: mapboxURL, json: true }, (e, {body}) => {
     if (e) {
       callback("Unable to connect to location services", undefined);
-    } else if (res.body.features.length === 0) {
+    } else if (body.features.length === 0) {
       callback("Unable to find location.  Try another search", undefined);
     } else {
-      const { place_name, center } = res.body.features[0];
+      const { place_name, center } = body.features[0];
 
       callback(
         undefined,
