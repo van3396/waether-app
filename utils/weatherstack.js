@@ -13,7 +13,7 @@ const weatherstack = (latitude, longitude, callback) => {
       const { temperature, weather_descriptions } = res.body.current;
       callback(
         undefined,
-        `In ${region} the current temperature is ${temperature} degrees and ${weather_descriptions[0]}.`
+        `In ${region}, the current temperature is ${temperature} degrees and ${weather_descriptions[0]}.`
       );
     }
   });

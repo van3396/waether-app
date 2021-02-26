@@ -13,7 +13,6 @@ const mapBox = (address, callback) => {
 
       callback(
         undefined,
-        // `For ${place_name} the longitude is: ${center[0]} and the latitude is: ${center[1]}}`
         { longitude: center[0], latitude: center[1], location: place_name }
       );
     }
